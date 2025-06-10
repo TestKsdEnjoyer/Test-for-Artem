@@ -1,4 +1,4 @@
-name: Build and Upload LaTeX PDF
+name: Build LaTeX Document
 on:
   push:
     branches: [ "main" ]
@@ -17,6 +17,7 @@ jobs:
       - uses: xu-cheng/latex-action@v2
         with:
           root_file: "example.tex"
+          compiler: "pdflatex"  # Явно указываем компилятор
           args: "-shell-escape -interaction=nonstopmode"
           
       - name: Verify PDF exists
