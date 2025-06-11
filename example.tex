@@ -1,21 +1,97 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage[russian]{babel}  
-
-\title{Пример главы конспекта}
-\author{Ваше имя}
-\date{\today}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{multicol}
+\usepackage{stackrel}
+\usepackage{xcolor}
+\usepackage{yhmath}
 
 \begin{document}
-\maketitle
+\pagestyle{empty}
+\normalsize
 
-\section{Введение}
-Это пример раздела. Здесь можно писать формулы:
-casdfasdfasd
-Далеркинс - все окей
-\[ E = mc^2 \]
+\section{Матанализ от Виноградова}
+\subsection{}
+Сомнительный вариант:
+$$\sin{\pi p} = \pi \prod ^ {\infty} _ {k=1} \left ( 1 - \frac{p^2}{k^2\pi^{2}}\right), \, p \in \mathbb{R}$$
+Вариант от Виноградова:
+$$\sin{z} = z \prod ^ {\infty} _ {k=1} \left ( 1 - \frac{z^2}{k^2\pi^{2}}\right), \, z \in \mathbb{C}$$
 
-\subsection{Подраздел}
-Текст с \textbf{полужирным} и \emph{курсивным} стилем.
+
+\subsection{}
+\textbf{Равномерная сходимость степенных рядов}. Пусть дан степенной ряд, $R \in \left( 0, +\infty \right]$ - его радиус сходимости. Тогда для любого $r \in \left(0, R \right)$ ряд равномерно сходится в круге $\overline{B} \left( z_0, r\right)$.
+\newline
+
+
+\noindent \textbf{(Абель). О степенных рядах.} Пусть дан вещественный степенной ряд, $R \in \left( 0, +\infty \right)$ - его радиус сходимости. Если ряд сходится при $x = x_0 + R$ или $x = x_0 - R$, то он равномерно сходится на $[ x_0, x_0 + R ]$ или $[ x_0 - R, x_0]$ соответственно, а его сумма непрерывна в точке $x_0 + R$ слева (соответсвенно, в точке $x_0$ - $R$ справа).
+\newline
+
+
+\noindent \textbf{Интегрирование степенных рядов.} Пусть дан вещественный степенной ряд, $R in (0 + \infty]$ - его радиус сходимости. Тогда ряд можно интегрировать почленно по любому отрезку, лежащему в интервале сходимости: если $[a,b] \subset (x_0 - R, x_0 + R)$, то $$\int^{b}_a \sum^{\infty}_{k = 0} a_k(x - x_0)^k dx = \sum^{\infty}_{k = 0}a_k\frac{(b - x_0)^{k + 1} - (a - x_0)^{k+1}}{k +1}$$
+
+
+\noindent Если, кроме того, ряд сходится при $x = x_0 + R$ или $x = x_0 - R$, то равенство верно и при $b = x_0 + R$ или $a = x_0 - R$ соответсвенно.
+
+
+\section{Большое задание от доктора Тренча}
+
+\subsection{}
+$$\frac{3 s - 2}{(s^2 -4s +5)(s^2 - 6s + 13)} = \frac{A(s-2) + B}{(s - 2)^2 + 1} +\frac{C(s -3) + D}{(s - 3)^2 + 4}$$
+
+
+where
+
+$$(A(s-2) + B)((s - 3)^2 + 4) + (C(s - 3) + D)((s - 2)^2 + 1) = 3s - 2$$
+\[
+\begin{array}{rl}
+5B - C + D &= 4 \ \text{(set $s = 2$);} \\
+4A + 4B + 2D &= 7 \ \text{(set $s = 3$);} \\
+-26A + 13B - 15C + 5D &= -2 \ \text{(set $s = 0$);} \\
+A + C &= 0 \ \text{(equate coefficients of $s^3$).}
+\end{array}
+\]
+
+
+
+Solving this system yields $A = 1$, $B =1/2$, $C = -1$, $D = 1/2$. Therefore,
+$$\frac{3s -2}{(s^2 -4s + 5)(s^2 -6s + 13)} = \frac{1}{2} \left[\frac{2(s -2) +1}{(s -2)^2 + 1} - \frac{2(s - 3) - 1}{(s - 3)^2 + 4}\right]$$
+
+$$\leftrightarrow e^{2t} \left(\cos{t} + \frac{1}{2} \sin{t}\right) - e^{3t} \left( \cos{2t} - \frac{1}{4} \sin{2t} \right)$$.
+
+\section{Маленькие задание от доктора Тренча}
+\subsection{}
+$$
+e^t \int^{t}_0 e^{2\tau} \sin{(t - \tau)} d\tau = \int^{t}_0 e^{3\tau}\left(e^{(t - \tau)} \sin{(t -\tau)}\right) d\tau; \, e^{3t} \leftrightarrow \frac{1}{s - 3} \, \text{and} \, e^t \sin{h} t \leftrightarrow \frac{1}{(s - 1)^2 - 1},
+$$
+
+
+
+so $H(s) = \frac{1}{(s - 3) ((s - 1) ^ 2 - 1)}$.
+\subsection{}
+$$
+\text{Substring} \, x = t - \tau \, \text{yields} \int\limits^{t}_0 f(t - \tau)g(\tau) d\tau = - \int^{0}_t f(x)g(t - x)(-dx) = \int^{t}_0 f(x)g(t - x) dx = \int^{t}_0 f(\tau)g(t - \tau) d\tau.
+$$
+
+
+\subsection{}
+$$
+te^{2t} \leftrightarrow \frac{1}{(s-2)^2} \, \text{and} \, \sin{2t} \leftrightarrow \frac{2}{(s^2 + 4)}, \, \text{so} \, H(s) = \frac{2}{(s - 2)^2(s^2 + 4)}.
+$$
+
+$
+\beta_n = 2 \left [\int_0^{1/2} x \sin n \pi x \, dx + \int_{1/2}^{1} (1 - x) \sin n \pi x \, dx \right];$
 
 \end{document}
+
+
+
