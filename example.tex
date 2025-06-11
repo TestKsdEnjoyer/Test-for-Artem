@@ -1,21 +1,217 @@
-\documentclass{article}
+\documentclass[a4paper,12pt]{article}
+\usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[russian]{babel}  
+\usepackage[russian]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{xcolor}
 
-\title{Пример главы конспекта}
-\author{Ваше имя}
-\date{\today}
+\geometry{left=3cm,right=2cm,top=2cm,bottom=2cm}
+
+% Настройка стиля разделов
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Настройка листингов кода
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    frame=single,
+    rulecolor=\color{black},
+    tabsize=4,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false
+}
 
 \begin{document}
+
+\title{Образец крупного документа LaTeX}
+\author{Иван Иванов \\ Университет Примеров}
+\date{\today}
 \maketitle
 
-\section{Введение}
-Это пример раздела. Здесь можно писать формулы:
-casdfasdfasd
-Далеркинс - все окей
-\[ E = mc^2 \]
+\begin{abstract}
+Это аннотация к документу. Здесь кратко описывается содержание работы, основные результаты и выводы. Аннотация обычно занимает не более одного абзаца и должна быть информативной.
+\end{abstract}
 
-\subsection{Подраздел}
-Текст с \textbf{полужирным} и \emph{курсивным} стилем.
+\tableofcontents
+
+\section{Введение}
+\label{sec:intro}
+
+Это вводный раздел документа. Здесь описывается актуальность темы, цели и задачи работы. Введение должно дать читателю общее представление о документе.
+
+\subsection{Актуальность исследования}
+Актуальность исследования обусловлена возрастающей потребностью в качественных LaTeX-документах для научных публикаций.
+
+\subsection{Цели и задачи}
+Основной целью данного документа является демонстрация возможностей LaTeX для создания крупных структурированных документов.
+
+\section{Обзор литературы}
+\label{sec:literature}
+
+В этом разделе приводится обзор существующих работ по теме. Можно использовать цитирование \cite{lamport94}.
+
+\begin{table}[h]
+\centering
+\caption{Сравнение систем верстки}
+\label{tab:comparison}
+\begin{tabularx}{\linewidth}{lXXX}
+\toprule
+Система & Преимущества & Недостатки \\
+\midrule
+LaTeX & Высокое качество верстки, поддержка сложных формул & Сложность изучения \\
+Word & Простота использования & Плохая работа с формулами \\
+Markdown & Простота, читаемость & Ограниченные возможности \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Методология}
+\label{sec:methodology}
+
+В этом разделе описываются методы, использованные в работе.
+
+\subsection{Математические методы}
+Используем уравнение второго порядка:
+\begin{equation}
+\label{eq:quadratic}
+ax^2 + bx + c = 0
+\end{equation}
+
+Решение уравнения \eqref{eq:quadratic}:
+\begin{equation}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation}
+
+\subsection{Программные методы}
+Пример кода на Python:
+
+\begin{lstlisting}[language=Python,caption=Пример кода]
+def quadratic(a, b, c):
+    """Решение квадратного уравнения"""
+    discriminant = b**2 - 4*a*c
+    if discriminant < 0:
+        return None
+    x1 = (-b + discriminant**0.5) / (2*a)
+    x2 = (-b - discriminant**0.5) / (2*a)
+    return x1, x2
+\end{lstlisting}
+
+\section{Результаты}
+\label{sec:results}
+
+Результаты представлены на рисунке \ref{fig:sample}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\linewidth]{example-image}
+\caption{Пример изображения}
+\label{fig:sample}
+\end{figure}
+
+\subsection{Таблицы с результатами}
+
+\begin{longtable}{lrrr}
+\caption{Детальные результаты экспериментов} \\
+\toprule
+Параметр & Серия 1 & Серия 2 & Серия 3 \\
+\midrule
+\endfirsthead
+\multicolumn{4}{c}{Продолжение таблицы \ref{tab:long}} \\
+\toprule
+Параметр & Серия 1 & Серия 2 & Серия 3 \\
+\midrule
+\endhead
+\bottomrule
+\multicolumn{4}{r}{Продолжение следует...} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Температура & 23.4 & 24.1 & 25.7 \\
+Влажность & 45 & 47 & 43 \\
+Скорость & 12.3 & 11.8 & 13.2 \\
+Давление & 101.3 & 101.5 & 101.1 \\
+Масса & 0.45 & 0.47 & 0.43 \\
+Объем & 1.2 & 1.3 & 1.1 \\
+Плотность & 0.375 & 0.362 & 0.391 \\
+Вязкость & 1.23 & 1.25 & 1.21 \\
+\label{tab:long}
+\end{longtable}
+
+\section{Обсуждение}
+\label{sec:discussion}
+
+В этом разделе анализируются полученные результаты и их соответствие поставленным задачам.
+
+\subsection{Ограничения исследования}
+\begin{itemize}
+\item Ограниченный объем данных
+\item Использование упрощенных моделей
+\item Ограниченные вычислительные ресурсы
+\end{itemize}
+
+\subsection{Перспективы развития}
+\begin{enumerate}
+\item Расширение набора данных
+\item Учет дополнительных параметров
+\item Оптимизация алгоритмов
+\end{enumerate}
+
+\section{Заключение}
+\label{sec:conclusion}
+
+В работе продемонстрированы основные возможности LaTeX для создания крупных структурированных документов. Показаны примеры математических формул, таблиц, изображений и листингов кода.
+
+\appendix
+\section{Дополнительные материалы}
+\label{sec:appendix}
+
+\subsection{Дополнительные таблицы}
+
+\begin{table}[h]
+\centering
+\caption{Дополнительные параметры}
+\label{tab:additional}
+\begin{tabular}{lr}
+\toprule
+Параметр & Значение \\
+\midrule
+Коэффициент A & 1.234 \\
+Коэффициент B & 5.678 \\
+Константа C & 9.101 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Дополнительные формулы}
+
+Формула Эйлера:
+\begin{equation}
+e^{i\pi} + 1 = 0
+\end{equation}
+
+\bibliographystyle{unsrt}
+\bibliography{references}
 
 \end{document}
